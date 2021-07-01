@@ -2,8 +2,7 @@
 
 This repository uses the Sensilla client API as documented at https://docs.sensilla.tech/public
 
-The example code is written in [Python](https://python.org) and uses only one single library, [requests]
-(https://docs.python-requests.org/en/master/)
+The example code is written in [Python](https://python.org) and uses only one single library, [requests](https://docs.python-requests.org/en/master/)
 
 The purpose of the example code is to introduce use how to consume the Sensilla client API by fetching measurements 
 time-series and sending external system events.
