@@ -4,16 +4,13 @@ This repository uses the Sensilla client API as documented at https://docs.sensi
 
 The example code is written in [Python](https://python.org) and uses only one single library, [requests](https://docs.python-requests.org/en/master/)
 
-The purpose of the example code is to introduce use how to consume the Sensilla client API by fetching measurements 
-time-series and sending external system events.
+The purpose of the example code is to introduce how to consume the Sensilla client API by fetching measurement time-series and sending external system events.
 
-If you run any of the scripts, they append to a log file called `output.log` that contains all communication with
-the API including request headers and responses. On standard output you will receive some API responses and the
-measurements for each location.
-
-To run any of the examples, you need to configure some environment variables or modify the `lib/config.py` file.
+Every script appends to a log file called `output.log` that contains all communication with the API including request headers and responses. On standard output you will receive some API responses and the measurements for each location.
 
 ## Environment variables
+
+You need to configure some environment variables or modify the `lib/config.py` file.
 
 ```
 SENSILLA_DEBUG=off
@@ -24,8 +21,7 @@ SENSILLA_API_PASSWORD='your password'
 
 ## measurements.py
 
-The measurements example first reads the complete project structure and then iterates over each location to get the 
-datapoints from the last 15 minutes for the following metrics:
+The measurements example first reads the complete project structure and then iterates over each location to get the datapoints from the last 15 minutes for the following metrics:
 - temperature
 - relative humidity
 - CO2 
@@ -42,7 +38,7 @@ script.
 ##### Project details for Id: 41
 #############################################
 {   'id': '41',
-    'name': 'RTH',
+    'name': 'Example',
     'externallocation': {   'extLocationName': 'LU0109A',
                             'extLocationId': 9642,
                             'activeParameters': ['co', 'pm25', 'pm10', 'no2']},
@@ -89,16 +85,15 @@ timestamp,temperature,humidity,co2
 ```
 
 The project details can also be used to synchronise to another system, see project ID and each location ID in 
-locationSet. The locationSet also includes a sensorSet to report the physical devices ID's.
+locationSet. The locationSet also includes a sensorSet to report the physical device ID's.
 
 ## new_system_event.py
 
 Used to create a new event from an external system such as a building management system.
 
-In case the external system reports an event where the end date is not yet known, the event id must be stored for 
-later updating the end timestamp.
+In case an external system reports an event where the end date is not yet known, the event id must be stored to update the end timestamp later.
 
-Use case: a window open and window close event
+Use case example: window open and window close event
 
 ### Example output
 
