@@ -142,8 +142,8 @@ class SensillaClient:
             start = int(datetime.utcnow().strftime("%s"))
 
         mutation = """
-        mutation addSystemEvent($description: String!, $end: Int, $eventData: String, $groupId: Int!, $location: Int, $metric: String, $notes: String, $sensor: Int, $start: Int!) {
-            addSystemEvent(description: $description, end: $end, eventData: $eventData, groupId: $groupId, location: $location, metric: $metric, notes: $notes, sensor: $sensor, start: $start) {
+        mutation addSystemEvent($description: String!, $end: Int, $eventData: String, $groupId: Int!, $locationIds: [Int], $metrics: [String], $notes: String, $sensorIds: [String], $start: Int!) {
+            addSystemEvent(description: $description, end: $end, eventData: $eventData, groupId: $groupId, locationIds: $locationIds, metrics: $metrics, notes: $notes, sensorIds: $sensorIds, start: $start) {
                 event {
                     id
                 }
